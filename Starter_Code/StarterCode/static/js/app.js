@@ -101,13 +101,13 @@ function buildCharts(sample) {
       }];
       // Create the layout for the bar chart. 
       var barLayout = {
-       title: "Navel Bacteria",
+       title: "Navel Bacteria Count",
        margin: {
         t: 50,
         l: 150,
        },
        yaxis: {
-        title: "Bacteria ID",
+        title: "Bacteria otu ID",
        },
        xaxis: {
         title: "Number of Bacteria Present in Belly Button",
@@ -125,7 +125,7 @@ function buildCharts(sample) {
         marker: {
           size: sampleValue,
           color: otuId,
-          colorscale: "viridis",
+          colorscale: "Earth",
         },
         type: "bubble"
       }
@@ -136,7 +136,7 @@ function buildCharts(sample) {
         title: "Bubble Chart of Bacteria",
         showLegend: true,
         xaxis: {
-          title: "Bacteria ID Number"
+          title: "Bacteria otu ID"
         }
       };
   
@@ -160,14 +160,14 @@ function buildCharts(sample) {
             { range: [8,10], color: "red"},
           ],
         },
-        title: {text: "Wash Frequency"}
+        title: {text: "Weekly Washing Frequency"}
       }
       ];
       
       // Create the layout for the gauge chart.
       var gaugeLayout = { 
-        width: 550,
-        height: 400,
+        width: 450,
+        height: 300,
         margin: {
           t: 0,
           b: 0
