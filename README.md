@@ -33,3 +33,5 @@ Display the sample metadata, i.e., an individual's demographic information.
 Display each key-value pair from the metadata JSON object somewhere on the page.
 
 Update all the plots when a new sample is selected. Additionally, you are welcome to create any layout that you would like for your dashboard.
+
+Code Source: speacial thanks to tutoring session with S Rennocks and examples found from previuouos students github repositiaries.  Find code was used as a starting point and changed to reflect preferences and understanding of process. 
