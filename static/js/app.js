@@ -30,8 +30,6 @@ function init() {
   
   // Initialize the dashboard
   init();
-
-
   function optionChanged(newSample) {
     // Fetch new data each time a new sample is selected
     buildMetadata(newSample);
@@ -68,26 +66,21 @@ function buildCharts(sample) {
       // Create a variable to hold the filters the samples for the desired sample number.
       var resultArray = samples.filter(sampleObj => sampleObj.id == sample);
       // Create a variable that filters the metadata array for the desired sample number.
-      var filteredMeta = data.metadata.filter(i => i.id == sample);
-      console.log(filteredMeta);
+
 
       // Create a variable to hold the first sample in the array.
       var result = resultArray[0];
       console.log(result)
 
-      // Create a variable to hold the first sample in the metadata array.
-      var metaResult = filteredMeta[0];
+
       // Create variables to hold the otu_ids, otu_labels, and sample_values.
       var otuId = result.otu_ids;
       var otuLabel = result.otu_labels;
       var sampleValue = result.sample_values;
       console.log(sampleValue.slice(0,10));
-      // Create a variable to hold the washing frequency.
-      washFreq = parseFloat(metaResult.wfreq);
-      console.log(washFreq);
+
       // Create the yticks for the bar chart.
-        
-      var yticks = otuId.slice(0,10).map((i) => `OTU ID ${i}`)
+     var yticks = otuId.slice(0,10).map((i) => `OTU ID ${i}`)
    
       console.log(yticks.toString().split(","));
       // Create the trace for the bar chart. 
@@ -144,9 +137,16 @@ function buildCharts(sample) {
       Plotly.newPlot("bubble", bubbleData, bubbleLayout);
 
 
+// Bonus Gauge Chart plot
+
+     // Create a variable that filters the metadata array for the desired sample number.
+      var filteredMeta = data.metadata.filter(i => i.id == sample);
+        console.log(filteredMeta);
+      // Create a variable to hold the first sample in the metadata array.
+      var metaResult = filteredMeta[0];
       // Create the trace for the gauge chart.
       var gaugeData = [{
-        value: washFreq,
+        value: metaResult.wfreq,
         type: "indicator",
         mode: "gauge+number",
         gauge: {
